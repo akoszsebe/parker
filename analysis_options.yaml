@@ -8,6 +8,42 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "test/.test_coverage.dart"
+    - "bin/cache/**"
+    - "lib/generated_plugin_registrant.dart"
+    # For more information see:
+    # https://dart.dev/guides/language/analysis-options#enabling-additional-type-checks
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  errors:
+    # Without ignore here, we cause import of all_lint_rules to warn, because some rules conflict.
+    # We explicitly enabled even conflicting rules and are fixing the conflicts in this file.
+    # Put it to warning temporarily, if you need troubleshoot lint rule settings.
+    included_file_warning: ignore
+
+    # Treat missing required parameters as an error, not as a hint or a warning.
+    missing_required_param: error
+
+    # Treat missing returns as an error, not as a hint or a warning.
+    missing_return: error
+
+    # Allow self-reference to deprecated members. This is done because otherwise we have
+    # to annotate every member in every test, assert, etc., when we deprecate something.
+    deprecated_member_use_from_same_package: warning
+
+    # DON'T assign new values to parameters of methods or functions.
+    # https://dart-lang.github.io/linter/lints/parameter_assignments.html
+    parameter_assignments: warning
+
+    # Allow having TODOs in the code.
+    todo: warning
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -22,8 +58,23 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-
+    #Available rules: https://dart-lang.github.io/linter/lints/options/options.html
+    avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    always_declare_return_types: true
+    always_put_required_named_parameters_first: true
+    always_specify_types: true
+    annotate_overrides: true
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_init_to_null: true
+    avoid_multiple_declarations_per_line: true
+    avoid_redundant_argument_values: true
+    avoid_return_types_on_setters: true
+    avoid_returning_null: true
+    avoid_returning_null_for_future: true
+    avoid_returning_null_for_void: true
+    avoid_types_as_parameter_names: true
+    avoid_unnecessary_containers: true
+    avoid_unused_constructor_parameters: true
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

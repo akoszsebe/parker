@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,18 +6,18 @@ import '../providers/providers.dart';
 
 class AuthWidget extends ConsumerWidget {
   const AuthWidget({
-    Key? key,
     required this.signedInBuilder,
     required this.nonSignedInBuilder,
+    Key? key
   }) : super(key: key);
   final WidgetBuilder nonSignedInBuilder;
   final WidgetBuilder signedInBuilder;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authStateChanges = ref.watch(authStateChangesProvider);
+    final AsyncValue<User?> authStateChanges = ref.watch(authStateChangesProvider);
     return authStateChanges.when(
-      data: (user) => _data(context, user),
+      data: (User? user) => _data(context, user),
       loading: () => const Scaffold(
         body: Center(
           child: CircularProgressIndicator(),

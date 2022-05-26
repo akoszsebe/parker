@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/entry_page.dart';
@@ -7,13 +6,13 @@ import '../pages/entry_page.dart';
 class AppRoutes {
   // static const emailPasswordSignInPage = '/email-password-sign-in-page';
   // static const editJobPage = '/edit-job-page';
-  static const entryPage = '/entry-page';
+  static const String entryPage = '/entry-page';
 }
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(
       RouteSettings settings, FirebaseAuth firebaseAuth) {
-    final args = settings.arguments;
+    final Object? args = settings.arguments;
     switch (settings.name) {
       // case AppRoutes.emailPasswordSignInPage:
       //   return MaterialPageRoute<dynamic>(
@@ -39,7 +38,7 @@ class AppRouter {
       //   );
       case AppRoutes.entryPage:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => EntryPage(),
+          builder: (_) => const EntryPage(),
           settings: settings,
           fullscreenDialog: true,
         );

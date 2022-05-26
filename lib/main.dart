@@ -13,7 +13,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(EasyLocalization(
-    supportedLocales: const [Locale('en', 'US')],
+    supportedLocales: const <Locale>[Locale('en', 'US')],
     path: 'lib/resources/i18n',
     child: const ProviderScope(child: MainApp()),
   ));

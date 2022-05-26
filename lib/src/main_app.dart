@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:parker/src/pages/home_page.dart';
@@ -12,7 +13,7 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final firebaseAuth = ref.watch(firebaseAuthProvider);
+    final FirebaseAuth firebaseAuth = ref.watch(firebaseAuthProvider);
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -21,13 +22,13 @@ class MainApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
         nonSignedInBuilder: (_) => Consumer(
-          builder: (context, ref, _) {
-            return SignInPage();
+          builder: (BuildContext context, WidgetRef ref, _) {
+            return const SignInPage();
           },
         ),
-        signedInBuilder: (_) => HomePage(),
+        signedInBuilder: (_) => const HomePage(),
       ),
-      onGenerateRoute: (settings) =>
+      onGenerateRoute: (RouteSettings settings) =>
           AppRouter.onGenerateRoute(settings, firebaseAuth),
     );
   }

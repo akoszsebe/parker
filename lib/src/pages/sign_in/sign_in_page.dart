@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:parker/generated/locale_keys.g.dart';
@@ -10,15 +9,18 @@ import 'package:parker/src/pages/sign_in/sign_in_view_model.dart';
 import 'package:parker/src/providers/providers.dart';
 import 'package:parker/src/routing/app_routes.dart';
 
-final signInModelProvider = ChangeNotifierProvider<SignInViewModel>(
-  (ref) => SignInViewModel(auth: ref.watch(firebaseAuthProvider)),
+final ChangeNotifierProvider<SignInViewModel> signInModelProvider = ChangeNotifierProvider<SignInViewModel>(
+  (ChangeNotifierProviderRef<SignInViewModel> ref) => SignInViewModel(auth: ref.watch(firebaseAuthProvider)),
 );
 
 class SignInPage extends ConsumerWidget {
+
+  const SignInPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final signInModel = ref.watch(signInModelProvider);
-    ref.listen<SignInViewModel>(signInModelProvider, (_, model) async {
+    final SignInViewModel signInModel = ref.watch(signInModelProvider);
+    ref.listen<SignInViewModel>(signInModelProvider, (_, SignInViewModel model) async {
       if (model.error != null) {
         // show popup Text("Sigin failed");
       }
@@ -32,7 +34,7 @@ class SignInPage extends ConsumerWidget {
 
 class SignInPageContents extends StatelessWidget {
   const SignInPageContents(
-      {Key? key, required this.viewModel, this.title = 'Architecture Demo'})
+      {required this.viewModel, Key? key, this.title = 'Architecture Demo'})
       : super(key: key);
   final SignInViewModel viewModel;
   final String title;
@@ -41,7 +43,7 @@ class SignInPageContents extends StatelessWidget {
   static const Key anonymousButtonKey = Key(Keys.anonymous);
 
   Future<void> _showEmailPasswordSignInPage(BuildContext context) async {
-    final navigator = Navigator.of(context);
+    final NavigatorState navigator = Navigator.of(context);
     await navigator.pushNamed(
       AppRoutes.entryPage,
       arguments: () => navigator.pop(),
@@ -67,7 +69,7 @@ class SignInPageContents extends StatelessWidget {
       );
     }
     return const Text(
-      "signIn",
+      'signIn',
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.w600),
     );
@@ -75,7 +77,7 @@ class SignInPageContents extends StatelessWidget {
 
   Widget _buildSignIn(BuildContext context) {
     return Center(
-      child: LayoutBuilder(builder: (context, constraints) {
+      child: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
         return Container(
           width: min(constraints.maxWidth, 600),
           padding: const EdgeInsets.all(16.0),
@@ -91,27 +93,27 @@ class SignInPageContents extends StatelessWidget {
               const SizedBox(height: 32.0),
               MaterialButton(
                 key: emailPasswordButtonKey,
-                child: Text(LocaleKeys.SignIn_actionEmailPassword.tr()),
                 onPressed: viewModel.isLoading
                     ? null
                     : () => _showEmailPasswordSignInPage(context),
                 textColor: Colors.white,
                 color: Theme.of(context).primaryColor,
+                child: Text(LocaleKeys.SignIn_actionEmailPassword.tr()),
               ),
               const SizedBox(height: 8),
               const Text(
-                "or",
+                'or',
                 style: TextStyle(fontSize: 14.0, color: Colors.black87),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
               MaterialButton(
                 key: anonymousButtonKey,
-                child: Text("goAnonymous"),
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 onPressed:
                     viewModel.isLoading ? null : viewModel.signInAnonymously,
+                child: const Text('goAnonymous'),
               ),
             ],
           ),

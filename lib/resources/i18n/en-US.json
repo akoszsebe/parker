@@ -1,0 +1,7 @@
+{
+    "appName" : "Parker",
+    "SignIn" : {
+        "PageName" : "Sign In",
+        "actionEmailPassword" : "Sign In with email and password"
+    }
+}

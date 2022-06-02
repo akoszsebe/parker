@@ -64,6 +64,8 @@ flutter_icons:
   ios: true
   image_path_android: "resources/icons/android_icon.png"
   image_path_ios: "resources/icons/ios_icon.png"
+  remove_alpha_ios: true
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

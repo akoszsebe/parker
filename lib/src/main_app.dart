@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:parker/src/pages/home_page.dart';
+import 'package:parker/src/pages/home/home_page.dart';
 import 'package:parker/src/pages/sign_in/sign_in_page.dart';
 import 'package:parker/src/providers/providers.dart';
 import 'package:parker/src/routing/app_routes.dart';

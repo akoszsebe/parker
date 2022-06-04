@@ -2,6 +2,8 @@
     "appName" : "Parker",
     "SignIn" : {
         "PageName" : "Sign In",
-        "actionEmailPassword" : "Sign In with email and password"
+        "actionEmailPassword" : "Sign In with email and password",
+        "title" : "If you need to park somewhere",
+        "subtitle" : "Sign In & Sign Up"
     }
 }

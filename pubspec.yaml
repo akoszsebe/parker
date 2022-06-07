@@ -86,11 +86,14 @@ flutter:
   assets:
     - lib/resources/i18n/en-US.json
   #svg
-    - lib/resources/i18n/google_logo.svg
-    - lib/resources/i18n/facebook_logo.svg
-    - lib/resources/i18n/apple_logo.svg
-    - lib/resources/i18n/native_logo.svg
-    - lib/resources/i18n/signin_bg.png
+    - lib/resources/svg/google_logo.svg
+    - lib/resources/svg/facebook_logo.svg
+    - lib/resources/svg/apple_logo.svg
+    - lib/resources/svg/native_logo.svg
+  #images
+    - lib/resources/images/signin_bg.png
+  #jsons
+    - lib/resources/map/map-style.json
   
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

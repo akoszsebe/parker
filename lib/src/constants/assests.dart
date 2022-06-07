@@ -1,10 +1,10 @@
 class AppSVGAssets {
-  static const String googleLogo = 'lib/resources/i18n/google_logo.svg';
-  static const String facebookLogo = 'lib/resources/i18n/facebook_logo.svg';
-  static const String appleLogo = 'lib/resources/i18n/apple_logo.svg';
-  static const String nativeLogo = 'lib/resources/i18n/native_logo.svg';
+  static const String googleLogo = 'lib/resources/svg/google_logo.svg';
+  static const String facebookLogo = 'lib/resources/svg/facebook_logo.svg';
+  static const String appleLogo = 'lib/resources/svg/apple_logo.svg';
+  static const String nativeLogo = 'lib/resources/svg/native_logo.svg';
 }
 
 class AppAssets {
-  static const String signinBg = 'lib/resources/i18n/signin_bg.png';
+  static const String signinBg = 'lib/resources/images/signin_bg.png';
 }

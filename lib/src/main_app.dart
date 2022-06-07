@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:parker/src/constants/app_colors.dart';
 import 'package:parker/src/pages/home/home_page.dart';
 import 'package:parker/src/pages/sign_in/sign_in_page.dart';
 import 'package:parker/src/providers/providers.dart';
@@ -18,7 +20,9 @@ class MainApp extends ConsumerWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      theme: ThemeData(primarySwatch: Colors.indigo),
+      theme: ThemeData(
+          primaryColor: AppColors.primary,
+          textTheme: GoogleFonts.interTextTheme()),
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
         nonSignedInBuilder: (_) => Consumer(

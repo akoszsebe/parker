@@ -43,12 +43,16 @@ class SignInPageContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
-    return Scaffold(
-      backgroundColor: Colors.grey[500],
-      body: Container(
-          padding: EdgeInsets.only(top: statusBarHeight),
-          child: _buildSignIn(context)),
-    );
+    return Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(AppAssets.signinBg), fit: BoxFit.fill)),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Container(
+              padding: EdgeInsets.only(top: statusBarHeight),
+              child: _buildSignIn(context)),
+        ));
   }
 
   Widget _buildSignIn(BuildContext context) {

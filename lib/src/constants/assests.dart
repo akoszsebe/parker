@@ -4,3 +4,7 @@ class AppSVGAssets {
   static const String appleLogo = 'lib/resources/i18n/apple_logo.svg';
   static const String nativeLogo = 'lib/resources/i18n/native_logo.svg';
 }
+
+class AppAssets {
+  static const String signinBg = 'lib/resources/i18n/signin_bg.png';
+}

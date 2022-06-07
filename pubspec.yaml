@@ -34,7 +34,7 @@ dependencies:
   flutter_svg: 1.0.3
   intl: ^0.17.0
   easy_localization: ^3.0.1 #flutter pub run easy_localization:generate -S "lib/resources/i18n" -f keys -O "lib/generated" -o "locale_keys.g.dart"
-  google_fonts: ^2.3.2
+  google_fonts: ^3.0.1
   package_info_plus: ^1.4.2
   url_launcher: ^6.1.2
   #google_maps_flutter: ^2.1.5
@@ -90,6 +90,7 @@ flutter:
     - lib/resources/i18n/facebook_logo.svg
     - lib/resources/i18n/apple_logo.svg
     - lib/resources/i18n/native_logo.svg
+    - lib/resources/i18n/signin_bg.png
   
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

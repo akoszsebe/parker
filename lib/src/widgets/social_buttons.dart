@@ -34,9 +34,9 @@ class FacebookSignInButton extends StatelessWidget {
         scale: 1.28,
         child: FloatingActionButton(
             heroTag: tag,
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff4267B2),
             onPressed: onPressed,
-            child: SvgPicture.asset(AppSVGAssets.facebookLogo, height: 37.5)));
+            child: Image.asset(AppAssets.facebookLogo)));
   }
 }
 
@@ -53,8 +53,8 @@ class AppleSignInButton extends StatelessWidget {
         scale: 1.28,
         child: FloatingActionButton(
             heroTag: tag,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             onPressed: onPressed,
-            child: SvgPicture.asset(AppSVGAssets.appleLogo, height: 37.5)));
+            child: Image.asset(AppAssets.appleLogo)));
   }
 }

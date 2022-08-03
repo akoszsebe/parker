@@ -7,6 +7,7 @@ import 'package:parker/src/pages/sign_in/sign_in_view_model.dart';
 import 'package:parker/src/providers/providers.dart';
 import 'package:parker/src/constants/assests.dart';
 import 'package:parker/src/constants/tags.dart';
+import 'package:parker/src/style/app_text_style.dart';
 import 'package:parker/src/widgets/rounded_container.dart';
 import 'package:parker/src/widgets/social_buttons.dart';
 
@@ -67,7 +68,11 @@ class SignInPageContents extends StatelessWidget {
           fit: BoxFit.scaleDown,
         ),
       ),
-      const Text(LocaleKeys.SignIn_title).tr(),
+      Text(
+        LocaleKeys.SignIn_title,
+        style: AppTextStyle.header1Light,
+        textAlign: TextAlign.center,
+      ).tr(),
       const SizedBox(),
       TopRoundedContainer(
           radius: 32.0,
@@ -76,22 +81,25 @@ class SignInPageContents extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(LocaleKeys.SignIn_subtitle).tr(),
+              Text(
+                LocaleKeys.SignIn_subtitle,
+                style: AppTextStyle.body2,
+              ).tr(),
               const SizedBox(height: 43),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  GoogleSignInButton(
-                    tag: AppTags.googleSignInButton,
-                    onPressed: () {
-                      viewModel.signInWithGoogle();
-                    },
-                  ),
                   FacebookSignInButton(
                     tag: AppTags.facebookSignInButton,
                     onPressed: () {
                       viewModel
                           .signInWithFacebook(); // finish flow firebase console
+                    },
+                  ),
+                  GoogleSignInButton(
+                    tag: AppTags.googleSignInButton,
+                    onPressed: () {
+                      viewModel.signInWithGoogle();
                     },
                   ),
                   AppleSignInButton(
